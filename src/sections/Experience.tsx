@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Briefcase, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const experiences = [
   {
@@ -50,96 +50,66 @@ export function Experience() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="experience" className="relative py-24 sm:py-32">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan/5 to-transparent pointer-events-none" />
-      
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
+    <section id="experience" className="py-24" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-12">
           <motion.span
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="inline-block text-cyan text-sm font-medium uppercase tracking-widest mb-4"
+            transition={{ duration: 0.4 }}
+            className="inline-block text-[13px] font-medium text-ink-subtle uppercase tracking-[0.4px] mb-4"
           >
             Experience
           </motion.span>
-          
+
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white"
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="text-[40px] font-semibold text-ink leading-[1.15]"
+            style={{ letterSpacing: '-1px' }}
           >
             Career Journey
           </motion.h2>
         </div>
 
-        {/* Timeline */}
-        <div ref={ref} className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan/50 via-cyan/20 to-transparent hidden sm:block" />
-          
+        <div className="space-y-3">
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
-              className={`relative mb-12 last:mb-0 ${
-                index % 2 === 0 ? 'md:pr-[50%]' : 'md:pl-[50%]'
-              }`}
+              transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+              className="p-6 sm:p-8 rounded-lg bg-surface-1 border border-hairline"
             >
-              {/* Timeline Dot */}
-              <div className={`absolute top-0 hidden sm:block ${
-                index % 2 === 0 ? 'md:right-0 md:translate-x-1/2' : 'md:left-0 md:-translate-x-1/2'
-              }`}>
-                <div className="w-4 h-4 rounded-full bg-cyan border-4 border-background shadow-glow" />
+              <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
+                <h3 className="text-[16px] font-semibold text-ink">{exp.title}</h3>
+                <span className="text-[13px] text-ink-subtle flex-shrink-0">{exp.period}</span>
               </div>
-              
-              {/* Card */}
-              <div className={`ml-12 sm:ml-0 ${
-                index % 2 === 0 ? 'md:mr-12' : 'md:ml-12'
-              }`}>
-                <div className="group p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.05] hover:border-cyan/20 transition-all duration-300">
-                  {/* Header */}
-                  <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <Briefcase className="w-4 h-4 text-cyan" />
-                        <span className="text-sm text-cyan font-medium">{exp.period}</span>
-                      </div>
-                      <h3 className="text-xl font-semibold text-white mb-1">{exp.title}</h3>
-                      <a 
-                        href={exp.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-muted-foreground hover:text-cyan transition-colors"
-                      >
-                        {exp.company}
-                        <ExternalLink className="w-3 h-3" />
-                      </a>
-                    </div>
-                  </div>
-                  
-                  {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    {exp.description}
-                  </p>
-                  
-                  {/* Skills */}
-                  <div className="flex flex-wrap gap-2">
-                    {exp.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-3 py-1 text-xs rounded-full bg-white/5 text-muted-foreground border border-white/5"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+
+              <a
+                href={exp.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-[13px] text-ink-subtle hover:text-ink transition-colors mb-4"
+              >
+                {exp.company}
+                <ExternalLink className="w-3 h-3" />
+              </a>
+
+              <p className="text-[14px] text-ink-muted leading-[1.6] my-4">
+                {exp.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {exp.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-2 py-1 text-[12px] rounded-full bg-surface-2 border border-hairline text-ink-subtle"
+                  >
+                    {skill}
+                  </span>
+                ))}
               </div>
             </motion.div>
           ))}

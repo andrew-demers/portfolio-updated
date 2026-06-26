@@ -1,49 +1,43 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { 
-  Code2, Database, Globe, Layout, 
-  BarChart3, Eye, Target, GitBranch, 
-  Cloud, Palette, Bot, Workflow,
-  Layers, Cpu, MessageSquare, Sparkles, Notebook
-} from 'lucide-react';
+import { Code2, BarChart3, Eye, Bot, Cpu, Sparkles } from 'lucide-react';
 
 const skillCategories = [
   {
     title: 'Languages & Frameworks',
     icon: Code2,
     skills: [
-      { name: 'Python', icon: Database },
-      { name: 'JavaScript ES6+', icon: Globe },
-      { name: 'SQL', icon: Database },
-      { name: 'React', icon: Layout },
-      { name: 'MongoDB/JSON', icon: Database },
+      { name: 'Python' },
+      { name: 'JavaScript ES6+' },
+      { name: 'SQL' },
+      { name: 'React' },
+      { name: 'MongoDB/JSON' },
     ],
   },
   {
     title: 'Applications & Tools',
     icon: BarChart3,
     skills: [
-      { name: 'Redash', icon: BarChart3 },
-      { name: 'Looker', icon: Eye },
-      { name: 'Tableau', icon: BarChart3 },
-      { name: 'Jira', icon: Target },
-      { name: 'Postman', icon: MessageSquare },
-      { name: 'Git', icon: GitBranch },
-      { name: 'AWS', icon: Cloud },
-      { name: 'Figma', icon: Palette },
-      { name: 'Miro', icon: Layers },
+      { name: 'Redash' },
+      { name: 'Looker' },
+      { name: 'Tableau' },
+      { name: 'Jira' },
+      { name: 'Postman' },
+      { name: 'Git' },
+      { name: 'AWS' },
+      { name: 'Figma' },
+      { name: 'Miro' },
     ],
   },
   {
     title: 'AI/ML Technologies',
     icon: Bot,
     skills: [
-      { name: 'Hugging Face', icon: Bot },
-      { name: 'LangChain', icon: Workflow },
-      { name: 'n8n', icon: Workflow },
-      { name: 'Claude Skills', icon: Bot },
-      { name: 'Jupyter Notebooks', icon: Notebook },
-
+      { name: 'Hugging Face' },
+      { name: 'LangChain' },
+      { name: 'n8n' },
+      { name: 'Claude Skills' },
+      { name: 'Jupyter Notebooks' },
     ],
   },
 ];
@@ -62,94 +56,78 @@ export function Skills() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="skills" className="relative py-24 sm:py-32">
+    <section id="skills" className="py-24" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="mb-12">
           <motion.span
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="inline-block text-cyan text-sm font-medium uppercase tracking-widest mb-4"
+            transition={{ duration: 0.4 }}
+            className="inline-block text-[13px] font-medium text-ink-subtle uppercase tracking-[0.4px] mb-4"
           >
             Skills
           </motion.span>
-          
+
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="text-[40px] font-semibold text-ink leading-[1.15]"
+            style={{ letterSpacing: '-1px' }}
           >
             Technical Expertise
           </motion.h2>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="text-muted-foreground max-w-2xl mx-auto"
-          >
-            A comprehensive toolkit for building AI-powered products
-          </motion.p>
         </div>
 
-        {/* AI Expertise Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-16"
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="mb-12"
         >
-          <h3 className="text-lg font-semibold text-white mb-6 text-center">AI & ML Specializations</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {aiExpertise.map((item, index) => (
               <motion.div
                 key={item.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                initial={{ opacity: 0, y: 16 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
-                className="group p-4 rounded-xl bg-gradient-to-br from-cyan/10 to-purple/10 border border-white/5 hover:border-cyan/30 transition-all duration-300 text-center"
+                className="p-4 rounded-lg bg-surface-1 border border-hairline text-center"
               >
-                <div className="w-10 h-10 rounded-lg bg-cyan/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-cyan/20 transition-colors">
-                  <item.icon className="w-5 h-5 text-cyan" />
+                <div className="w-10 h-10 rounded-md bg-surface-2 border border-hairline flex items-center justify-center mx-auto mb-3">
+                  <item.icon className="w-5 h-5 text-lavender" />
                 </div>
-                <h4 className="text-white font-medium text-sm mb-1">{item.name}</h4>
-                <p className="text-xs text-muted-foreground">{item.description}</p>
+                <h4 className="text-[14px] font-medium text-ink mb-1">{item.name}</h4>
+                <p className="text-[12px] text-ink-subtle">{item.description}</p>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Skill Categories */}
-        <div ref={ref} className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.4 + categoryIndex * 0.1 }}
-              className="p-6 rounded-2xl bg-white/[0.02] border border-white/5"
+              transition={{ duration: 0.4, delay: 0.4 + categoryIndex * 0.1 }}
+              className="p-6 rounded-lg bg-surface-1 border border-hairline"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-cyan/10 flex items-center justify-center">
-                  <category.icon className="w-5 h-5 text-cyan" />
+                <div className="w-10 h-10 rounded-md bg-surface-2 border border-hairline flex items-center justify-center">
+                  <category.icon className="w-5 h-5 text-lavender" />
                 </div>
-                <h3 className="text-white font-semibold">{category.title}</h3>
+                <h3 className="text-[14px] font-medium text-ink">{category.title}</h3>
               </div>
-              
+
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
+                {category.skills.map((skill) => (
+                  <span
                     key={skill.name}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.3, delay: 0.5 + categoryIndex * 0.1 + skillIndex * 0.03 }}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                    className="px-3 py-2 rounded-md bg-surface-2 border border-hairline text-[13px] text-ink-subtle"
                   >
-                    <skill.icon className="w-3.5 h-3.5 text-muted-foreground" />
-                    <span className="text-sm text-white">{skill.name}</span>
-                  </motion.div>
+                    {skill.name}
+                  </span>
                 ))}
               </div>
             </motion.div>

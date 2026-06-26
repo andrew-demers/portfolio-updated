@@ -43,3 +43,9 @@ coverage
 
 # Misc
 *.pem
+*.md
+!README.md
+
+# Claude Code stuff
+.claude/
+.remember/

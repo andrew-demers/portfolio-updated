@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const navItems = [
@@ -33,79 +33,90 @@ export function Navigation() {
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-background/80 backdrop-blur-xl border-b border-white/5' : ''
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 bg-canvas transition-all duration-300 ${
+          isScrolled ? 'border-b border-hairline' : ''
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <motion.a
+          <div className="flex items-center justify-between h-14">
+            <a
               href="#"
-              className="text-lg font-semibold text-white hover:text-cyan transition-colors"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              className="text-sm font-semibold text-ink transition-colors"
             >
               Andrew Demers
-            </motion.a>
+            </a>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1">
-              {navItems.map((item, index) => (
-                <motion.button
+              {navItems.map((item) => (
+                <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="relative px-4 py-2 text-sm text-muted-foreground hover:text-white transition-colors"
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05 + 0.2 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="text-[13px] text-ink-subtle hover:text-ink px-3 py-1.5 rounded-md hover:bg-surface-1 transition-colors"
                 >
                   {item.label}
-                </motion.button>
+                </button>
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
-            <motion.button
-              className="md:hidden p-2 text-white"
+            <div className="hidden md:flex items-center gap-2">
+              <button
+                onClick={() => window.open('/resume.pdf', '_blank')}
+                className="px-[14px] py-[9px] text-[14px] font-medium text-ink bg-surface-1 border border-hairline rounded-md hover:bg-surface-2 transition-colors min-h-[40px]"
+              >
+                Resume
+              </button>
+              <button
+                onClick={() => scrollToSection('#contact')}
+                className="px-[14px] py-[9px] text-[14px] font-medium text-ink bg-lavender hover:bg-lavender-hover rounded-md transition-colors min-h-[40px]"
+              >
+                Contact
+              </button>
+            </div>
+
+            <button
+              className="md:hidden p-2 text-ink"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              whileTap={{ scale: 0.95 }}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.button>
+            </button>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-20 md:hidden"
+            className="fixed inset-0 z-40 bg-canvas pt-14 md:hidden"
           >
             <div className="flex flex-col items-center gap-4 p-8">
-              {navItems.map((item, index) => (
-                <motion.button
+              {navItems.map((item) => (
+                <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-xl text-white hover:text-cyan transition-colors py-3"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
+                  className="text-xl text-ink hover:text-ink-muted transition-colors py-3"
                 >
                   {item.label}
-                </motion.button>
+                </button>
               ))}
+              <div className="flex flex-col gap-3 w-full max-w-xs mt-4">
+                <button
+                  onClick={() => window.open('/resume.pdf', '_blank')}
+                  className="w-full px-[14px] py-[9px] text-[14px] font-medium text-ink bg-surface-1 border border-hairline rounded-md hover:bg-surface-2 transition-colors min-h-[40px]"
+                >
+                  Resume
+                </button>
+                <button
+                  onClick={() => scrollToSection('#contact')}
+                  className="w-full px-[14px] py-[9px] text-[14px] font-medium text-ink bg-lavender hover:bg-lavender-hover rounded-md transition-colors min-h-[40px]"
+                >
+                  Contact
+                </button>
+              </div>
             </div>
           </motion.div>
         )}

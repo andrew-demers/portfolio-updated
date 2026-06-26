@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, FileText, Mail } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ArrowDown } from 'lucide-react';
 
 export function Hero() {
   const scrollToSection = (href: string) => {
@@ -11,127 +10,72 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        {/* Gradient Orbs */}
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, hsl(190 100% 50% / 0.15) 0%, transparent 70%)',
-          }}
-          animate={{
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, hsl(280 100% 60% / 0.12) 0%, transparent 70%)',
-          }}
-          animate={{
-            x: [0, -40, 0],
-            y: [0, 40, 0],
-            scale: [1, 1.15, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        
-        {/* Grid Pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
-          }}
-        />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Main Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-14">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
+          transition={{ duration: 0.4 }}
+          className="text-[13px] font-medium text-ink-subtle uppercase tracking-[0.4px] mb-6"
         >
-          <span className="text-white">AI</span>{' '}
-          <span className="text-gradient">Product Manager</span>
+          Technical Product Manager - AI
+        </motion.p>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="text-[clamp(2.25rem,7vw,5rem)] font-semibold text-ink leading-[1.05] mb-6"
+          style={{ letterSpacing: 'clamp(-1px, -0.0375em, -3px)' }}
+        >
+          Andrew Demers
         </motion.h1>
 
-        {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed"
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="text-[18px] text-ink-muted leading-[1.5] max-w-[560px] mx-auto mb-10 tracking-[-0.1px]"
         >
-          Building innovative, data-informed solutions at the intersection of 
+          Building innovative, data-informed solutions at the intersection of
           machine learning and product management
         </motion.p>
 
-        {/* CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          transition={{ duration: 0.4, delay: 0.3 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-3"
         >
-          <Button
-            size="lg"
-            className="bg-cyan hover:bg-cyan-dark text-background font-semibold px-8 py-6 text-base rounded-xl transition-all hover:shadow-glow"
+          <button
             onClick={() => scrollToSection('#contact')}
+            className="px-[14px] py-[9px] text-[14px] font-medium text-ink bg-lavender hover:bg-lavender-hover rounded-md transition-colors min-h-[40px]"
           >
-            <Mail className="mr-2 h-5 w-5" />
             Get in Touch
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-white/20 hover:bg-white/5 text-white px-8 py-6 text-base rounded-xl"
+          </button>
+          <button
             onClick={() => window.open('/resume.pdf', '_blank')}
+            className="px-[14px] py-[9px] text-[14px] font-medium text-ink bg-surface-1 border border-hairline rounded-md hover:bg-surface-2 transition-colors min-h-[40px]"
           >
-            <FileText className="mr-2 h-5 w-5" />
             View Resume
-          </Button>
+          </button>
         </motion.div>
       </div>
 
-      {/* Scroll Indicator - outside content div so it's anchored to viewport bottom */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
+        transition={{ duration: 0.4, delay: 0.8 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <motion.button
+        <button
           onClick={() => scrollToSection('#about')}
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-white transition-colors"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          className="flex flex-col items-center gap-2 text-ink-tertiary hover:text-ink-subtle transition-colors"
         >
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
+          <span className="text-[12px] uppercase tracking-[0.4px]">Scroll</span>
           <ArrowDown className="h-4 w-4" />
-        </motion.button>
+        </button>
       </motion.div>
-
-      {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 }

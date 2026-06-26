@@ -42,72 +42,65 @@ export function Education() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="education" className="relative py-24 sm:py-32">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple/5 to-transparent pointer-events-none" />
-      
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
+    <section id="education" className="py-24" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-12">
           <motion.span
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="inline-block text-cyan text-sm font-medium uppercase tracking-widest mb-4"
+            transition={{ duration: 0.4 }}
+            className="inline-block text-[13px] font-medium text-ink-subtle uppercase tracking-[0.4px] mb-4"
           >
             Education
           </motion.span>
-          
+
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white"
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="text-[40px] font-semibold text-ink leading-[1.15]"
+            style={{ letterSpacing: '-1px' }}
           >
             Academic Background
           </motion.h2>
         </div>
 
-        {/* Education Cards */}
-        <div ref={ref} className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6">
           {education.map((item, index) => (
             <motion.div
               key={item.degree}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-              className={`group relative p-6 sm:p-8 rounded-2xl transition-all duration-300 ${
-                item.highlight 
-                  ? 'bg-gradient-to-br from-cyan/10 to-purple/10 border border-cyan/30 hover:border-cyan/50' 
-                  : 'bg-white/[0.02] border border-white/5 hover:bg-white/[0.05] hover:border-white/10'
+              transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+              className={`relative p-6 rounded-lg border ${
+                item.highlight
+                  ? 'bg-surface-2 border-hairline-strong'
+                  : 'bg-surface-1 border-hairline'
               }`}
             >
-              {/* Highlight Badge */}
               {item.highlight && (
                 <div className="absolute -top-3 right-6">
-                  <span className="px-3 py-1 text-xs font-medium rounded-full bg-cyan text-background">
+                  <span className="px-2 py-1 text-[12px] font-medium rounded-full bg-lavender text-ink">
                     In Progress
                   </span>
                 </div>
               )}
-              
+
               <div className="flex items-start gap-4">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                  item.highlight ? 'bg-cyan/20' : 'bg-white/5'
-                }`}>
-                  <item.icon className={`w-6 h-6 ${item.highlight ? 'text-cyan' : 'text-muted-foreground'}`} />
+                <div className="w-10 h-10 rounded-md bg-surface-2 border border-hairline flex items-center justify-center flex-shrink-0">
+                  <item.icon className={`w-5 h-5 ${item.highlight ? 'text-lavender' : 'text-ink-subtle'}`} />
                 </div>
-                
+
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-lg font-semibold text-white mb-1">{item.degree}</h3>
-                  <p className="text-muted-foreground mb-2">{item.school}</p>
-                  
-                  <div className="flex items-center gap-2 text-sm text-cyan mb-3">
-                    <Calendar className="w-4 h-4" />
+                  <h3 className="text-[15px] font-semibold text-ink mb-1">{item.degree}</h3>
+                  <p className="text-[14px] text-ink-subtle mb-2">{item.school}</p>
+
+                  <div className={`flex items-center gap-1.5 mb-3 ${item.highlight ? 'text-[13px] text-lavender' : 'text-[13px] text-ink-subtle'}`}>
+                    <Calendar className="w-3.5 h-3.5" />
                     <span>{item.year}</span>
                   </div>
-                  
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+
+                  <p className="text-[14px] text-ink-muted leading-[1.5]">
                     {item.description}
                   </p>
                 </div>

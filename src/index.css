@@ -6,26 +6,26 @@
 
 @layer base {
   :root {
-    --background: 220 20% 4%;
-    --foreground: 0 0% 98%;
-    --card: 220 15% 8%;
-    --card-foreground: 0 0% 98%;
-    --popover: 220 15% 8%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 190 100% 50%;
-    --primary-foreground: 220 20% 4%;
-    --secondary: 220 15% 12%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 220 15% 15%;
-    --muted-foreground: 220 10% 60%;
-    --accent: 280 100% 60%;
-    --accent-foreground: 0 0% 98%;
+    --background: 240 33% 0.4%;
+    --foreground: 180 3% 97%;
+    --card: 225 20% 6%;
+    --card-foreground: 180 3% 97%;
+    --popover: 225 20% 6%;
+    --popover-foreground: 180 3% 97%;
+    --primary: 234 56% 60%;
+    --primary-foreground: 180 3% 97%;
+    --secondary: 225 15% 10%;
+    --secondary-foreground: 180 3% 97%;
+    --muted: 225 15% 12%;
+    --muted-foreground: 218 6% 57%;
+    --accent: 225 15% 12%;
+    --accent-foreground: 180 3% 97%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 190 100% 50%;
-    --radius: 0.625rem;
+    --destructive-foreground: 180 3% 97%;
+    --border: 223 9% 15%;
+    --input: 223 9% 15%;
+    --ring: 234 56% 60%;
+    --radius: 0.75rem;
   }
 }
 
@@ -33,64 +33,39 @@
   * {
     @apply border-border;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
-  
+
   code, pre {
     font-family: 'JetBrains Mono', monospace;
   }
 }
 
-@layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(190 100% 50%), hsl(280 100% 60%));
-  }
-  
-  .bg-gradient-radial {
-    background: radial-gradient(ellipse at center, var(--tw-gradient-from), var(--tw-gradient-to));
-  }
-  
-  .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
-  }
-  
-  .glow-cyan {
-    box-shadow: 0 0 40px -10px hsl(190 100% 50% / 0.5);
-  }
-  
-  .glow-purple {
-    box-shadow: 0 0 40px -10px hsl(280 100% 60% / 0.5);
-  }
-}
-
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(220 20% 4%);
+  background: #010102;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(220 15% 20%);
+  background: #23252a;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(220 15% 30%);
+  background: #2e3138;
 }
 
-/* Selection */
 ::selection {
-  background: hsl(190 100% 50% / 0.3);
-  color: white;
+  background: hsl(234 56% 60% / 0.3);
+  color: #f7f8f8;
 }
