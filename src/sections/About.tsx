@@ -1,5 +1,4 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Layers, BarChart3, Users, Bot } from 'lucide-react';
 
 const highlights = [
@@ -26,17 +25,15 @@ const highlights = [
 ];
 
 export function About() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
   return (
     <section id="about" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div ref={ref}>
+          <div>
             <motion.span
               initial={{ opacity: 0, y: 16 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: '-80px' }}
               transition={{ duration: 0.4 }}
               className="inline-block text-[13px] font-medium text-ink-subtle uppercase tracking-[0.4px] mb-4"
             >
@@ -45,7 +42,8 @@ export function About() {
 
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: '-80px' }}
               transition={{ duration: 0.4, delay: 0.1 }}
               className="text-[40px] font-semibold text-ink leading-[1.15] mb-6"
               style={{ letterSpacing: '-1px' }}
@@ -55,7 +53,8 @@ export function About() {
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: '-80px' }}
               transition={{ duration: 0.4, delay: 0.2 }}
               className="space-y-4 text-[16px] text-ink-muted leading-[1.6]"
             >
@@ -82,7 +81,8 @@ export function About() {
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 16 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: '-80px' }}
                 transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                 className="p-6 rounded-lg bg-surface-1 border border-hairline"
               >

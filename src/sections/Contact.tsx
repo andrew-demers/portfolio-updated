@@ -1,5 +1,4 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Mail, Linkedin, Github, FileText } from 'lucide-react';
 
 const contactLinks = [
@@ -30,15 +29,13 @@ const contactLinks = [
 ];
 
 export function Contact() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
   return (
-    <section id="contact" className="py-24" ref={ref}>
+    <section id="contact" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: '-80px' }}
           transition={{ duration: 0.4 }}
           className="p-12 rounded-xl bg-surface-1 border border-hairline mb-8"
         >
@@ -67,7 +64,8 @@ export function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 16 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: '-80px' }}
               transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
               className="p-6 rounded-lg bg-surface-1 border border-hairline hover:bg-surface-2 transition-colors"
             >
@@ -83,7 +81,8 @@ export function Contact() {
 
         <motion.footer
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false, margin: '-80px' }}
           transition={{ duration: 0.4, delay: 0.5 }}
           className="pt-8 border-t border-hairline mt-16"
         >

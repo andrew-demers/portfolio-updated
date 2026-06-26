@@ -1,5 +1,4 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Code2, BarChart3, Eye, Bot, Cpu, Sparkles } from 'lucide-react';
 
 const skillCategories = [
@@ -53,16 +52,14 @@ const aiExpertise = [
 ];
 
 export function Skills() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
   return (
-    <section id="skills" className="py-24" ref={ref}>
+    <section id="skills" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: '-80px' }}
             transition={{ duration: 0.4 }}
             className="inline-block text-[13px] font-medium text-ink-subtle uppercase tracking-[0.4px] mb-4"
           >
@@ -71,7 +68,8 @@ export function Skills() {
 
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: '-80px' }}
             transition={{ duration: 0.4, delay: 0.1 }}
             className="text-[40px] font-semibold text-ink leading-[1.15]"
             style={{ letterSpacing: '-1px' }}
@@ -82,7 +80,8 @@ export function Skills() {
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: '-80px' }}
           transition={{ duration: 0.4, delay: 0.2 }}
           className="mb-12"
         >
@@ -91,7 +90,8 @@ export function Skills() {
               <motion.div
                 key={item.name}
                 initial={{ opacity: 0, y: 16 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: '-80px' }}
                 transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
                 className="p-4 rounded-lg bg-surface-1 border border-hairline text-center"
               >
@@ -110,7 +110,8 @@ export function Skills() {
             <motion.div
               key={category.title}
               initial={{ opacity: 0, y: 16 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: '-80px' }}
               transition={{ duration: 0.4, delay: 0.4 + categoryIndex * 0.1 }}
               className="p-6 rounded-lg bg-surface-1 border border-hairline"
             >
