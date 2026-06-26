@@ -35,6 +35,7 @@ const skillCategories = [
     skills: [
       { name: 'Hugging Face' },
       { name: 'LangChain' },
+      { name: 'Langfuse' },
       { name: 'n8n' },
       { name: 'Claude Skills' },
       { name: 'Jupyter Notebooks' },
@@ -47,7 +48,7 @@ const aiExpertise = [
   { name: 'Agentic AI', icon: Bot, description: 'Autonomous AI Agents' },
   { name: 'Machine Learning', icon: Cpu, description: 'ML Models & Pipelines' },
   { name: 'Computer Vision', icon: Eye, description: 'CV & Image Processing' },
-  { name: 'SLMs', icon: Cpu, description: 'Small Language Models' },
+  { name: 'AI Evals', icon: Cpu, description: 'Evaluation & Benchmarking' },
   { name: 'MLLMs', icon: Sparkles, description: 'Multimodal LLMs' },
 ];
 

@@ -1,27 +1,27 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Brain, Lightbulb, Users, Rocket } from 'lucide-react';
+import { Layers, BarChart3, Users, Bot } from 'lucide-react';
 
 const highlights = [
   {
-    icon: Brain,
-    title: 'AI/ML Expertise',
-    description: 'Deep understanding of machine learning models and their practical applications',
+    icon: Layers,
+    title: 'Intuitive AI Products',
+    description: 'Turning complex AI capabilities into products users can understand and act on',
   },
   {
-    icon: Lightbulb,
-    title: 'Product Strategy',
-    description: 'Translating complex technical concepts into scalable, user-centric products',
+    icon: BarChart3,
+    title: 'Metrics That Matter',
+    description: 'Task success, reuse, and real user outcomes - not vanity engagement numbers',
   },
   {
     icon: Users,
-    title: 'Cross-functional Leadership',
-    description: 'Bridging the gap between technical teams and business objectives',
+    title: 'Engineering Partnership',
+    description: 'Partnering closely with engineering and data science to ship and scale',
   },
   {
-    icon: Rocket,
-    title: 'End-to-End Delivery',
-    description: 'From concept to production, managing the full product lifecycle',
+    icon: Bot,
+    title: 'Intelligent Automation',
+    description: 'Building agent workflows that reduce manual effort and surface what matters',
   },
 ];
 
@@ -60,19 +60,19 @@ export function About() {
               className="space-y-4 text-[16px] text-ink-muted leading-[1.6]"
             >
               <p>
-                I am a dedicated professional at the intersection of machine learning and product
-                management, driven by a passion for building innovative, data-informed solutions
-                that deliver meaningful impact.
+                I&apos;m a product leader focused on building and scaling AI-powered systems that solve real-world problems.
               </p>
               <p>
-                With a strong foundation in developing and deploying machine learning models,
-                combined with strategic product management expertise, I excel at transforming
-                complex technical concepts into scalable, user-centric products.
+                Today, I lead AI Search &amp; Asset Intelligence at Tricentis, where I&apos;m focused on improving how enterprise teams discover, reuse, and act on large-scale testing assets. My work centers on RAG, vector search, and agent-driven workflows - turning advances in LLMs into practical, high-impact products.
               </p>
               <p>
-                Throughout my career, I&apos;ve led cross-functional teams to conceptualize, design,
-                and deliver AI-powered solutions that solve real-world problems. I thrive in roles
-                that challenge me to bridge the gap between technical teams and business objectives.
+                Prior to Tricentis, I led AI product initiatives at webAI, where I delivered 50+ AI-driven features across a full-stack machine learning platform and launched the company&apos;s first mobile AI application. My work spanned on-device LLM inference, distributed AI systems, and privacy-first architectures.
+              </p>
+              <p>
+                I&apos;ve also worked across robotics and computer vision, shipping AI/ML capabilities for autonomous systems and driving adoption through tight iteration loops between model performance and user feedback.
+              </p>
+              <p>
+                I&apos;m currently pursuing an M.S. in Artificial Intelligence and enjoy working at the intersection of product, engineering, and applied AI.
               </p>
             </motion.div>
           </div>
