@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Linkedin, Github, FileText } from 'lucide-react';
+import { Mail, LinkedinIcon, GithubIcon, FileText } from 'lucide-react';
 
 const contactLinks = [
   {
@@ -17,13 +17,13 @@ const contactLinks = [
   {
     name: 'LinkedIn',
     description: 'Connect professionally',
-    icon: Linkedin,
+    icon: LinkedinIcon,
     href: 'https://www.linkedin.com/in/andrew-demers/',
   },
   {
     name: 'GitHub',
     description: 'View my code',
-    icon: Github,
+    icon: GithubIcon,
     href: 'https://www.github.com/andrew-demers',
   },
 ];
