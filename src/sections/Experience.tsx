@@ -4,9 +4,17 @@ import { ExternalLink } from 'lucide-react';
 
 const experiences = [
   {
+    title: 'Lead Product Manager, AI Search and Asset Intelligence',
+    company: 'Tricentis',
+    period: 'May 2025 - Present',
+    description: 'Own the AI Search and Asset Intelligence roadmap at Tricentis, helping customers discover and reuse test assets across thousands of projects. Define requirements for our RAG architecture, vector search, and recommender systems, and act as translator between AI engineering and business stakeholders. Establish golden datasets and evaluation pipelines to measure hallucination, reasoning accuracy, and task success rate before shipping - with role-based access control at the chunk level and PII redaction enforced throughout.',
+    skills: ['RAG', 'Vector Search', 'AI/ML', 'Product Strategy', 'Agentic AI', 'LLMs', 'Search Architecture'],
+    url: 'https://tricentis.com',
+  },
+  {
     title: 'Senior Technical Product Manager',
     company: 'webAI',
-    period: 'Feb. 2026 - Present',
+    period: 'Feb. 2026 - May 2025',
     description: 'Own product strategy and execution for a decentralized, privacy-first AI platform enabling secure, on-device and peer-to-peer intelligence delivery. Lead cross-functional initiatives across AI infrastructure, on-device LLM inference, and distributed architecture; drive roadmap and long-term vision with Engineering, Design, and Leadership.',
     skills: ['Product Strategy', 'AI/ML', 'Distributed Systems', 'Cross-Functional Leadership', 'On-Device Inference'],
     url: 'https://webai.com',
@@ -42,6 +50,22 @@ const experiences = [
     description: 'Oversaw the end-to-end software development lifecycle for B2B2C engineering projects, managing technical risks and ensuring agile execution across cross-functional teams. Focused on spearheading technical execution to deploy robust software solutions on schedule while managing resources to meet budgetary constraints.',
     skills: ['B2B2C', 'Agile', 'Risk Management', 'Resource Planning'],
     url: 'https://flashparking.com',
+  },
+  {
+    title: 'Software Engineer',
+    company: 'Ultra Electronics, Advanced Tactical Systems',
+    period: 'Nov. 2019 - Jul. 2021',
+    description: 'Improved design, usability, and implementation of defense software programs using Agile principles. Actively contributed to quality processes through unit testing, code reviews, and mentorship. Built a server-based development environment for the team using ESXi and vSphere technologies, enabling real-time testing and defect resolution that significantly accelerated delivery.',
+    skills: ['Software Engineering', 'Agile', 'ESXi/vSphere', 'Unit Testing', 'Defense Systems'],
+    url: 'https://www.ultra-as.com',
+  },
+  {
+    title: 'Web Developer',
+    company: 'OroSolutions, LLC',
+    period: 'Mar. 2019 - Nov. 2019',
+    description: 'Built and improved web applications supporting the accounting team\'s preparation and delivery of web-based financial statements. Enhanced the company\'s automated reporting platform by improving report generation controls with a variety of APIs.',
+    skills: ['Web Development', 'JavaScript', 'APIs', 'Financial Systems'],
+    url: '#',
   },
 ];
 
