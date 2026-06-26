@@ -24,7 +24,7 @@ const contactLinks = [
     name: 'GitHub',
     description: 'View my code',
     icon: Github,
-    href: 'https://www.github.com/demersaj',
+    href: 'https://www.github.com/andrew-demers',
   },
 ];
 
